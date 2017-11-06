@@ -20,6 +20,7 @@ ln -s "$DOTFILES_DIR/.bash_profile" ~
 ln -s "$DOTFILES_DIR/.bash_prompt" ~
 ln -s "$DOTFILES_DIR/.bashrc" ~
 ln -s "$DOTFILES_DIR/.bash_git" ~
+ln -s "$DOTFILES_DIR/.zshrc" ~
 ln -s "$DOTFILES_DIR/.eslintrc" ~
 ln -s "$DOTFILES_DIR/.git-completion.bash" ~
 ln -s "$DOTFILES_DIR/.git-prompt.sh" ~
@@ -91,6 +92,11 @@ git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 # brew install nvm
 # . "${DOTFILES_DIR}/system/.nvm"
 # nvm install 6
+
+# zsh syntax highlighting
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
+echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
+source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Globally install with npm
 brew install yarn --without-node
