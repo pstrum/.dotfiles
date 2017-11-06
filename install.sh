@@ -20,13 +20,16 @@ ln -s "$DOTFILES_DIR/.bash_profile" ~
 ln -s "$DOTFILES_DIR/.bash_prompt" ~
 ln -s "$DOTFILES_DIR/.bashrc" ~
 ln -s "$DOTFILES_DIR/.bash_git" ~
+ln -s "$DOTFILES_DIR/.eslintrc" ~
 ln -s "$DOTFILES_DIR/.git-completion.bash" ~
 ln -s "$DOTFILES_DIR/.git-prompt.sh" ~
 ln -s "$DOTFILES_DIR/.gitattributes" ~
 ln -s "$DOTFILES_DIR/.gitconfig" ~
 ln -s "$DOTFILES_DIR/.gitignore" ~
-ln -s "$DOTFILES_DIR/.inputrc" ~
+ln -s "$DOTFILES_DIR/.hammerspoon" ~
 ln -s "$DOTFILES_DIR/.hushlogin" ~
+ln -s "$DOTFILES_DIR/.inputrc" ~
+ln -s "$DOTFILES_DIR/.jshintrc" ~
 ln -s "$DOTFILES_DIR/.macos" ~
 
 # Package managers & packages
@@ -74,39 +77,46 @@ brewpackages=(
 brew install "${brewpackages[@]}"
 
 # Install Bash
-brew install bash
-grep "/usr/local/bin/bash" /private/etc/shells &>/dev/null || sudo bash -c "echo /usr/local/bin/bash >> /private/etc/shells"
-chsh -s /usr/local/bin/bash
+# brew install bash
+# grep "/usr/local/bin/bash" /private/etc/shells &>/dev/null || sudo bash -c "echo /usr/local/bin/bash >> /private/etc/shells"
+# chsh -s /usr/local/bin/bash
+
+# Install zsh
+chsh -s /bin/zsh
+
+# Install zsh-nvm
+git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 
 # Install NVM and Packages
-brew install nvm
-. "${DOTFILES_DIR}/system/.nvm"
-nvm install 6
+# brew install nvm
+# . "${DOTFILES_DIR}/system/.nvm"
+# nvm install 6
+
 # Globally install with npm
+brew install yarn --without-node
 npmpackages=(
   standard
   react
   react-dom
 )
-npm install -g "${npmpackages[@]}"
+yarn global add "${npmpackages[@]}"
 
 # Install Caskroom
 brew tap caskroom/cask
 brew install brew-cask
 brew tap caskroom/versions
+
 # Install packages
 apps=(
-  bartender
-  cleanmymac
-  dash
   dropbox
-  fantastical
   firefox
-  firefox-nightly
   google-chrome
   google-chrome-canary
   google-drive
-  opera
+  hammerspoon
+  hyper
+  iterm2
+  macvim
   rocket
   scrivener
   sequel-pro
@@ -117,5 +127,3 @@ apps=(
 )
 
 brew cask install "${apps[@]}"
-
-bats test/*.bats
