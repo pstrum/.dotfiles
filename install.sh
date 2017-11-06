@@ -95,6 +95,7 @@ git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 # Globally install with npm
 brew install yarn --without-node
 npmpackages=(
+  pure-prompt
   standard
   react
   react-dom
