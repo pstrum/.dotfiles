@@ -44,36 +44,36 @@ brew update
 brew upgrade
 # Install packages
 brewpackages=(
-  autoconf
-  bash-completion2
-  cscope
-  gdbm
-  git
-  guetzli
-  jpeg
-  libksba
-  libtiff
-  libyaml
-  macvim
-  openssl
-  python
-  readline
-  ruby
-  xz
-  automake
-  freetype
-  gettext
-  imagemagick
-  libgpg-error
-  libpng
-  libtool
-  lua
-  mysql
-  pkg-config
-  python3
-  redis
-  sqlite
-  yarn
+  # autoconf
+  # bash-completion2
+  # cscope
+  # gdbm
+  # git
+  # guetzli
+  # jpeg
+  # libksba
+  # libtiff
+  # libyaml
+  # macvim
+  # openssl
+  # python
+  # readline
+  # ruby
+  # xz
+  # automake
+  # freetype
+  # gettext
+  # imagemagick
+  # libgpg-error
+  # libpng
+  # libtool
+  # lua
+  # mysql
+  # pkg-config
+  # python3
+  # redis
+  # sqlite
+  # yarn
 )
 brew install "${brewpackages[@]}"
 
@@ -95,7 +95,6 @@ git clone https://github.com/lukechilds/zsh-nvm.git ~/.zsh-nvm
 
 # zsh syntax highlighting
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
-echo "source ${(q-)PWD}/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc
 source ./zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Globally install with npm

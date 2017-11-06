@@ -3,8 +3,6 @@ prompt pure
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
 # NVM
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
 autoload -U add-zsh-hook
@@ -30,3 +28,6 @@ load-nvmrc
 
 # Get those aliases
 source $HOME/.aliases
+
+# Add rvm to path
+source /Users/Pete/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
