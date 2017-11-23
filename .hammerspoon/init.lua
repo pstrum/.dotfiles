@@ -67,6 +67,10 @@ hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
+  hs.application.launchOrFocus("Firefox")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "f", function()
   hs.application.launchOrFocus("Safari")
 end)
 
@@ -80,6 +84,10 @@ end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
   hs.application.launchOrFocus("iA Writer")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
+  hs.application.launchOrFocus("Spotify")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
