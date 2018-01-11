@@ -30,4 +30,4 @@ load-nvmrc
 source $HOME/.aliases
 
 # Add rvm to path
-source /Users/Pete/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /Users/peter/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

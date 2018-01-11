@@ -30,8 +30,12 @@ hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
   hs.application.launchOrFocus("Sketch")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
   hs.application.launchOrFocus("iTunes")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+  hs.application.launchOrFocus("Tweetbot")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
@@ -83,11 +87,15 @@ hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
-  hs.application.launchOrFocus("iA Writer")
+  hs.application.launchOrFocus("UlyssesMac")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
   hs.application.launchOrFocus("Spotify")
+end)
+
+hs.hotkey.bind({"option", "cmd"}, "p", function()
+  hs.application.launchOrFocus("Postman")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
@@ -99,9 +107,9 @@ hs.hotkey.bind({"cmd", "ctrl"}, "8", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "7", function()
-  hs.urlevent.openURLWithBundle("bear://x-callback-url/open-note?id=E6A8D0EE-415D-44F7-AA2A-98535B44E9BA-16539-000046E8CC7BA569", "net.shinyfrog.bear")
+  hs.urlevent.openURLWithBundle("bear://x-callback-url/open-note?id=0DD570AF-CC9A-4D21-BFC1-0064F6DE1F83-470-000019AD2A7BF97C", "net.shinyfrog.bear")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "6", function()
-  hs.urlevent.openURLWithBundle("bear://x-callback-url/open-note?id=0DD570AF-CC9A-4D21-BFC1-0064F6DE1F83-470-000019AD2A7BF97C", "net.shinyfrog.bear")
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "H", function()
+  hs.reload()
 end)
