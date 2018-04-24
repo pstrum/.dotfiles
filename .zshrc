@@ -2,6 +2,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+export PATH="$PATH:$HOME/Library/Python/2.7/bin":$PATH # Add Python executable
 
 # NVM
 source ~/.zsh-nvm/zsh-nvm.plugin.zsh
@@ -25,6 +26,10 @@ load-nvmrc() {
 }
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Adjust search history
+bindkey '\e[A' history-beginning-search-backward
+bindkey '\e[B' history-beginning-search-forward
 
 # Get those aliases
 source $HOME/.aliases

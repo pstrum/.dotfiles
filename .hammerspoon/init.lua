@@ -35,7 +35,11 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
-  hs.application.launchOrFocus("Tweetbot")
+  hs.application.launchOrFocus("Trello")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
+  hs.application.launchOrFocus("Twitterrific")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()

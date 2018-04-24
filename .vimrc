@@ -37,7 +37,7 @@ call vundle#end()            " required
 
 filetype plugin indent on    " required
 
-" Use the Base-16 Dark Themes, set to dark for Atom Dark
+" Use the Base-16 Dark Themes, set to light for Atom Light
 set background=dark
 
 " Atom Dark
@@ -50,7 +50,8 @@ colorscheme onedark
 " let g:airline_theme='understated'
 "
 " Atom theme dark
-let g:airline_theme='onedark'
+" let g:airline_theme='onedark'
+let g:airline_theme='one'
 "
 " Atom theme light
 " let g:airline_theme='one'
