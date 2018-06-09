@@ -73,7 +73,9 @@ brewpackages=(
   # python3
   # redis
   # sqlite
+  # sequel-pro
   # yarn
+  # google-backup-and-sync
 )
 brew install "${brewpackages[@]}"
 

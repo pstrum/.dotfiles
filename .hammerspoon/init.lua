@@ -34,12 +34,12 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
   hs.application.launchOrFocus("iTunes")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
   hs.application.launchOrFocus("Trello")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
-  hs.application.launchOrFocus("Twitterrific")
+hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+  hs.application.launchOrFocus("Tweetbot")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
@@ -75,10 +75,14 @@ hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
-  hs.application.launchOrFocus("Firefox")
+  hs.application.launchOrFocus("Fantastical 2")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "f", function()
+  hs.application.launchOrFocus("Firefox")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
   hs.application.launchOrFocus("Safari")
 end)
 
@@ -94,7 +98,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
   hs.application.launchOrFocus("UlyssesMac")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "s", function()
   hs.application.launchOrFocus("Spotify")
 end)
 

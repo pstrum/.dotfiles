@@ -50,8 +50,8 @@ colorscheme onedark
 " let g:airline_theme='understated'
 "
 " Atom theme dark
-" let g:airline_theme='onedark'
-let g:airline_theme='one'
+let g:airline_theme='onedark'
+" let g:airline_theme='one'
 "
 " Atom theme light
 " let g:airline_theme='one'
