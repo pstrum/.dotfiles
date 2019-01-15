@@ -116,22 +116,9 @@ brew tap caskroom/versions
 
 # Install packages
 apps=(
-  dropbox
-  firefox
-  google-chrome
-  google-chrome-canary
-  google-drive
   hammerspoon
-  hyper
-  iterm2
   macvim
-  rocket
-  scrivener
   sequel-pro
-  sketch
-  slack
-  spotify
-  sublime-text-3
 )
 
 brew cask install "${apps[@]}"

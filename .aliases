@@ -12,6 +12,7 @@ alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
 alias ic="cd ~/Library/Mobile\ Documents/"
+alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias u="cd ~/Library/Mobile\ Documents/X5AZV975AG~com~soulmen~ulysses3/Documents/Library"
 alias ul="cd ~/Library/Mobile\ Documents/X5AZV975AG~com~soulmen~ulysses3/Documents/Library/Groups-ulgroup/de46ba1eef3442328e57a9d27f1d3366-ulgroup"
 alias n="cd ~/projects/notes"
@@ -28,6 +29,12 @@ alias vim="mvim -v"
 alias mvim="mvim"
 alias mvimtab="open -a MacVim"
 alias byword="open -a Byword"
+alias restart_wifi="sudo ifconfig en0 down && sudo ifconfig en0 up"
+alias watchts="ts-node-dev --respawn --type-check"
+alias sublime_user="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sublime/User"
+
+# Reset Core Audio
+alias audio="sudo killall coreaudiod"
 
 # Gulp
 alias gulp='node_modules/.bin/gulp'

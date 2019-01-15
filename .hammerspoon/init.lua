@@ -30,6 +30,10 @@ hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
   hs.application.launchOrFocus("Sketch")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
+  hs.application.launchOrFocus("Sublime Merge")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
   hs.application.launchOrFocus("iTunes")
 end)
@@ -43,7 +47,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
-  hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("Sblack")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
@@ -67,7 +71,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Newton")
+  hs.application.launchOrFocus("Mail")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
@@ -76,6 +80,10 @@ end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
   hs.application.launchOrFocus("Fantastical 2")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
+  hs.application.launchOrFocus("Drafts")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "f", function()
@@ -91,11 +99,15 @@ hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
-  hs.application.launchOrFocus("calcbot")
+  hs.application.launchOrFocus("Logic Pro X")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
+  hs.application.launchOrFocus("Calcbot")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
-  hs.application.launchOrFocus("UlyssesMac")
+  hs.application.launchOrFocus("iA Writer")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "s", function()
@@ -121,3 +133,211 @@ end)
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "H", function()
   hs.reload()
 end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "4", function()
+  local win = hs.window.focusedWindow()
+  win:setSize(1230, 800)
+  win:centerOnScreen()
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "5", function()
+  local win = hs.window.focusedWindow()
+  win:setSize(1430, 1200)
+  win:centerOnScreen()
+end)
+
+-- a callback function to be called when application events happen
+function applicationWatcherCallback(appName, eventType, appObject)
+  if (appName == "Things") then
+    if (eventType == hs.application.watcher.activated) then
+      -- app just got focus, disable our hotkeys
+    elseif (eventType == hs.application.watcher.deactivated) then
+      -- app just lost focus, enable our hotkeys
+    end
+  end
+end
+
+-- Create and start the application event watcher
+watcher = hs.application.watcher.new(applicationWatcherCallback)
+watcher:start()
+
+-- Close notifications
+script = [[
+my closeNotif()
+on closeNotif()
+
+    tell application "System Events"
+        tell process "Notification Center"
+            set theWindows to every window
+            repeat with i from 1 to number of items in theWindows
+                set this_item to item i of theWindows
+                try
+                    click button 1 of this_item
+                on error
+
+                    my closeNotif()
+                end try
+            end repeat
+        end tell
+    end tell
+
+end closeNotif ]]
+
+function clearNotifications()
+  ok, result = hs.applescript(script)
+end
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
+  hs.timer.doAfter(1, clearNotifications)
+end)
+
+----------------
+-- WINDOW CONTROL
+-----------------
+
+-- SETTINGS
+------------
+
+-- local mod1 = {"cmd", "shift"} -- Movement
+-- local mod2 = {"cmd", "ctrl"} -- Resizing
+-- local mod3 = {"alt", "shift"} -- Movement slower
+-- local mod4 = {"alt", "ctrl"} -- Resizing slower
+
+-- hs.hotkey.bind(mod1,"R", function()
+  -- hs.reload()
+-- end)
+
+-- MOVEMENT
+------------
+
+-- hs.hotkey.bind(mod1,"Left", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.x = f.x - 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod1,"Right", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.x = f.x + 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod1,"Up", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.y = f.y - 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod1,"Down", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.y = f.y + 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod3,"Left", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.x = f.x - 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod3,"Right", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.x = f.x + 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod3,"Up", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.y = f.y - 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod3,"Down", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.y = f.y + 5
+  -- win:setFrame(f)
+-- end)
+
+----------
+ -- RESIZING
+----------
+
+-- hs.hotkey.bind(mod2,"Left", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.w = f.w - 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod2,"Right", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.w = f.w + 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod2,"Up", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.h = f.h - 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod2,"Down", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.h = f.h + 15
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod4,"Left", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.w = f.w - 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod4,"Right", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.w = f.w + 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod4,"Up", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.h = f.h - 5
+  -- win:setFrame(f)
+-- end)
+
+-- hs.hotkey.bind(mod4,"Down", function()
+  -- local win = hs.window.focusedWindow()
+  -- local f = win:frame()
+
+  -- f.h = f.h + 5
+  -- win:setFrame(f)
+-- end)
