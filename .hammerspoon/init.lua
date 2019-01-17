@@ -134,6 +134,12 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "H", function()
   hs.reload()
 end)
 
+hs.hotkey.bind({"cmd", "ctrl"}, "2", function()
+  local win = hs.window.focusedWindow()
+  win:setSize(630, 600)
+  win:centerOnScreen()
+end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "3", function()
   local win = hs.window.focusedWindow()
   win:setSize(830, 800)
