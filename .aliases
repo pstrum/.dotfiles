@@ -32,6 +32,7 @@ alias byword="open -a Byword"
 alias restart_wifi="sudo ifconfig en0 down && sudo ifconfig en0 up"
 alias watchts="ts-node-dev --respawn --type-check"
 alias sublime_user="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sublime/User"
+alias kibana="ssh estunnelkuowdev -N"
 
 # Reset Core Audio
 alias audio="sudo killall coreaudiod"

@@ -42,7 +42,7 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
   hs.application.launchOrFocus("Trello")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
   hs.application.launchOrFocus("Tweetbot")
 end)
 
@@ -74,9 +74,9 @@ hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
   hs.application.launchOrFocus("Mail")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
-  hs.application.launchOrFocus("Simulator")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
+--   hs.application.launchOrFocus("Simulator")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
   hs.application.launchOrFocus("Fantastical 2")
@@ -94,9 +94,9 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
   hs.application.launchOrFocus("Safari")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
-  hs.application.launchOrFocus("xcode")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
+--   hs.application.launchOrFocus("xcode")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
   hs.application.launchOrFocus("Logic Pro X")
@@ -120,6 +120,10 @@ end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
   hs.urlevent.openURLWithBundle("https://itunes.apple.com/us/curator/rocket-hour/id993269779", "com.apple.Safari")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
+  hs.urlevent.openURLWithBundle("bear://x-callback-url/search?", "net.shinyfrog.bear")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "8", function()

@@ -31,6 +31,10 @@ load-nvmrc
 bindkey '\e[A' history-beginning-search-backward
 bindkey '\e[B' history-beginning-search-forward
 
+# Sublime
+export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
+export EDITOR='subl -w'
+
 # Get those aliases
 source $HOME/.aliases
 
