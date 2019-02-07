@@ -66,7 +66,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "o", function()
   hs.application.launchOrFocus("Dash")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
   hs.application.launchOrFocus("Day One")
 end)
 
@@ -82,7 +82,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
   hs.application.launchOrFocus("Fantastical 2")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
   hs.application.launchOrFocus("Drafts")
 end)
 
