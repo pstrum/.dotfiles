@@ -71,7 +71,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Mail")
+  hs.application.launchOrFocus("Newton")
 end)
 
 -- hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
@@ -107,7 +107,7 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
-  hs.application.launchOrFocus("iA Writer")
+  hs.application.launchOrFocus("UlyssesMac")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "s", function()
