@@ -118,6 +118,16 @@ hs.hotkey.bind({"option", "cmd"}, "p", function()
   hs.application.launchOrFocus("Postman")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
+  local dayofweek = os.date("%A")
+  local month = os.date("%B")
+  local day = os.date(" %d"):gsub(" 0","")
+  local year = os.date("%Y")
+  local date = "%23%20" .. dayofweek .. "%2C%20" .. month .. "%20" .. day .. "%2C%20" .. year .. "%0A%0A%0A"
+  local url = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
+  hs.urlevent.openURLWithBundle(url, "com.ulyssesapp.mac")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
   hs.urlevent.openURLWithBundle("https://itunes.apple.com/us/curator/rocket-hour/id993269779", "com.apple.Safari")
 end)
