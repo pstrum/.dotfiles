@@ -2,6 +2,7 @@ local application = require "hs.application"
 local urlevent = require "hs.urlevent"
 local hotkey = require "hs.hotkey"
 local alert = require "hs.alert"
+local pasteboard = require "hs.pasteboard"
 
 local keys = require "keys"
 -- require "triggers"
@@ -86,9 +87,9 @@ hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
   hs.application.launchOrFocus("Drafts")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "f", function()
-  hs.application.launchOrFocus("Firefox")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl", "shift"}, "f", function()
+  -- hs.application.launchOrFocus("Firefox")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
   hs.application.launchOrFocus("Safari")
@@ -123,9 +124,12 @@ hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
   local month = os.date("%B")
   local day = os.date(" %d"):gsub(" 0","")
   local year = os.date("%Y")
+  local strDate = "# " .. dayofweek .. ", " .. month .. " " .. day .. ", " .. year
   local date = "%23%20" .. dayofweek .. "%2C%20" .. month .. "%20" .. day .. "%2C%20" .. year .. "%0A%0A%0A"
-  local url = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
-  hs.urlevent.openURLWithBundle(url, "com.ulyssesapp.mac")
+  local newJournal = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
+  local openUlysses = "ulysses://x-callback-url/new-sheet?group=Inbox"
+  hs.pasteboard.writeObjects(strDate)
+  hs.urlevent.openURLWithBundle(openUlysses, "com.ulyssesapp.mac")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
