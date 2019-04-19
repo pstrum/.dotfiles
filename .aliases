@@ -1,3 +1,8 @@
+# TEMPORARY
+# =========
+alias kuow-stage="ng build --configuration=stage && eb deploy kuow-admin-stage" # Deploy KUOW Staging
+alias kuow-dev="ng build && eb deploy kuow-admin-dev" # Deploy KUOW Dev
+
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
 alias ...="cd ../.."

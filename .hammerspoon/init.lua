@@ -99,11 +99,11 @@ end)
 --   hs.application.launchOrFocus("xcode")
 -- end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
   hs.application.launchOrFocus("Logic Pro X")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
   hs.application.launchOrFocus("Calcbot")
 end)
 
@@ -173,6 +173,12 @@ end)
 hs.hotkey.bind({"cmd", "ctrl"}, "5", function()
   local win = hs.window.focusedWindow()
   win:setSize(1430, 1200)
+  win:centerOnScreen()
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "6", function()
+  local win = hs.window.focusedWindow()
+  win:setSize(1850, 1250)
   win:centerOnScreen()
 end)
 

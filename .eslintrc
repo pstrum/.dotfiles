@@ -20,6 +20,7 @@
         "node": true
     },
     "rules": {
-        "semi": 2
+        "semi": 2,
+        "prettier/prettier": "error"
     }
 }
