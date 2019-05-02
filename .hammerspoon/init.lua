@@ -48,11 +48,15 @@ hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
-  hs.application.launchOrFocus("Sblack")
+  hs.application.launchOrFocus("Slack")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
   hs.application.launchOrFocus("Messages")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
+  hs.application.launchOrFocus("Apogee Maestro 2")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
