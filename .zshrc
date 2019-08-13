@@ -2,6 +2,10 @@ autoload -U promptinit; promptinit
 prompt pure
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+# Load RVM into a shell session *AS A FUNCTION*
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
 export PATH="$PATH:$HOME/Library/Python/2.7/bin":$PATH # Add Python executable
 
 # NVM
@@ -43,4 +47,3 @@ source /Users/peter/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="/usr/local/bin:$PATH"
-
