@@ -2,6 +2,10 @@
 # =========
 alias kuow-stage="ng build --configuration=stage && eb deploy kuow-admin-stage" # Deploy KUOW Staging
 alias kuow-dev="ng build && eb deploy kuow-admin-dev" # Deploy KUOW Dev
+alias du="SITE_BRAND=definitive vagrant up"
+alias dp="SITE_BRAND=definitive vagrant provision"
+alias pu="SITE_BRAND=polk vagrant up"
+alias pp="SITE_BRAND=polk vagrant provision"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -38,6 +42,9 @@ alias restart_wifi="sudo ifconfig en0 down && sudo ifconfig en0 up"
 alias watchts="ts-node-dev --respawn --type-check"
 alias sublime_user="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sublime/User"
 alias kibana="ssh estunnelkuowdev -N"
+shellspeed () {
+  for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
+}
 
 # Reset Core Audio
 alias audio="sudo killall coreaudiod"

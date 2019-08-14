@@ -24,7 +24,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
-  hs.application.launchOrFocus("iTerm")
+  hs.application.launchOrFocus("Hyper")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "k", function()

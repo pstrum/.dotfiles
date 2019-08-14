@@ -41,6 +41,7 @@ filetype plugin indent on    " required
 set background=dark
 
 " Atom Dark
+let g:onedark_termcolors=16
 colorscheme onedark
 
 " Atom Light
