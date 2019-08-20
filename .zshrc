@@ -15,4 +15,6 @@ source ~/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_STRATEGY=(history)
 bindkey '^ ' autosuggest-accept
 
+setopt autocd
+
 export PATH="/usr/local/bin:$PATH"
