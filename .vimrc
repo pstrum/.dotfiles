@@ -38,10 +38,9 @@ call vundle#end()            " required
 filetype plugin indent on    " required
 
 " Use the Base-16 Dark Themes, set to light for Atom Light
-set background=dark
+" set background=dark
 
 " Atom Dark
-let g:onedark_termcolors=16
 colorscheme onedark
 
 " Atom Light

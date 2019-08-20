@@ -6,6 +6,7 @@ alias du="SITE_BRAND=definitive vagrant up"
 alias dp="SITE_BRAND=definitive vagrant provision"
 alias pu="SITE_BRAND=polk vagrant up"
 alias pp="SITE_BRAND=polk vagrant provision"
+alias su="cd ~/projects/Sound-United-Web"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
