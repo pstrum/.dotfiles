@@ -3,6 +3,7 @@ local urlevent = require "hs.urlevent"
 local hotkey = require "hs.hotkey"
 local alert = require "hs.alert"
 local pasteboard = require "hs.pasteboard"
+local timer = require "hs.timer"
 
 local keys = require "keys"
 -- require "triggers"
@@ -188,13 +189,28 @@ end)
 
 -- a callback function to be called when application events happen
 function applicationWatcherCallback(appName, eventType, appObject)
-  if (appName == "Things") then
-    if (eventType == hs.application.watcher.activated) then
-      -- app just got focus, disable our hotkeys
-    elseif (eventType == hs.application.watcher.deactivated) then
-      -- app just lost focus, enable our hotkeys
+  local time = timer.localTime()
+  local day = os.date("%A")
+
+  -- No Twitter or Email M-F between 9am-12pm or 1pm-430pm
+  if (day ~= "Saturday" or day ~= "Sunday") then
+    if ((time > 32400 and time < 43200) or (time > 46800 and time < 59400)) then
+      if (appName == "Tweetbot" or appName == "Newton") then
+        if (eventType == hs.application.watcher.activated or
+            eventType == hs.application.watcher.launching) then
+          appObject:kill()
+        end
+      end
     end
   end
+
+  -- if (appName == "Things") then
+    -- if (eventType == hs.application.watcher.activated) then
+      -- app just got focus, disable our hotkeys
+    -- elseif (eventType == hs.application.watcher.deactivated) then
+      -- app just lost focus, enable our hotkeys
+    -- end
+  -- end
 end
 
 -- Create and start the application event watcher
