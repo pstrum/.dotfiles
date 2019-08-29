@@ -43,6 +43,7 @@ alias restart_wifi="sudo ifconfig en0 down && sudo ifconfig en0 up"
 alias watchts="ts-node-dev --respawn --type-check"
 alias sublime_user="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sublime/User"
 alias kibana="ssh estunnelkuowdev -N"
+alias hammer="subl ~/.dotfiles/.hammerspoon/init.lua"
 shellspeed () {
   for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 }
