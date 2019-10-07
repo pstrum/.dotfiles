@@ -57,7 +57,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
-  hs.application.launchOrFocus("Apogee Maestro 2")
+  hs.application.launchOrFocus("Cardhop")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
