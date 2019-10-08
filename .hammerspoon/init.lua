@@ -77,7 +77,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Newton")
+  hs.application.launchOrFocus("Mail")
 end)
 
 -- hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
