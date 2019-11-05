@@ -37,7 +37,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
-  hs.application.launchOrFocus("iTunes")
+  hs.application.launchOrFocus("Music")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
@@ -214,8 +214,8 @@ function applicationWatcherCallback(appName, eventType, appObject)
 end
 
 -- Create and start the application event watcher
-watcher = hs.application.watcher.new(applicationWatcherCallback)
-watcher:start()
+-- watcher = hs.application.watcher.new(applicationWatcherCallback)
+-- watcher:start()
 
 -- Close notifications
 script = [[

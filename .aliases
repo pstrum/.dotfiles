@@ -2,6 +2,7 @@
 # =========
 alias kuow-stage="ng build --configuration=stage && eb deploy kuow-admin-stage" # Deploy KUOW Staging
 alias kuow-dev="ng build && eb deploy kuow-admin-dev" # Deploy KUOW Dev
+alias kuow-prod="ng build --configuration=production && eb deploy kuow-admin-prod" # Deploy KUOW Dev
 alias du="SITE_BRAND=definitive vagrant up"
 alias dp="SITE_BRAND=definitive vagrant provision"
 alias pu="SITE_BRAND=polk vagrant up"
