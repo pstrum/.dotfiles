@@ -138,6 +138,19 @@ end)
   -- getJournalData()
 -- end)
 
+-- hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
+--   local dayofweek = os.date("%A")
+--   local month = os.date("%B")
+--   local day = os.date(" %d"):gsub(" 0","")
+--   local year = os.date("%Y")
+--   local strDate = "# " .. dayofweek .. ", " .. month .. " " .. day .. ", " .. year
+--   local date = "%23%20" .. dayofweek .. "%2C%20" .. month .. "%20" .. day .. "%2C%20" .. year .. "%0A%0A%0A"
+--   local newJournal = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
+--   local openUlysses = "ulysses://x-callback-url/new-sheet?group=Inbox"
+--   hs.pasteboard.writeObjects(strDate)
+--   hs.urlevent.openURLWithBundle(openUlysses, "com.ulyssesapp.mac")
+-- end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
   hs.urlevent.openURLWithBundle("https://itunes.apple.com/us/curator/rocket-hour/id993269779", "com.apple.Safari")
 end)
@@ -265,21 +278,21 @@ function createJournalEntry()
 end
 
 -- a callback function to be called when application events happen
-function applicationWatcherCallback(appName, eventType, appObject)
-  local time = timer.localTime()
-  local day = os.date("%A")
+-- function applicationWatcherCallback(appName, eventType, appObject)
+--   local time = timer.localTime()
+--   local day = os.date("%A")
 
   -- No Twitter or Email M-F between 9am-12pm or 1pm-430pm
-  if (day ~= "Saturday" or day ~= "Sunday") then
-    if ((time > 32400 and time < 43200) or (time > 46800 and time < 59400)) then
-      if (appName == "Tweetbot" or appName == "Newton") then
-        if (eventType == hs.application.watcher.activated or
-            eventType == hs.application.watcher.launching) then
-          appObject:kill()
-        end
-      end
-    end
-  end
+  -- if (day ~= "Saturday" or day ~= "Sunday") then
+  --   if ((time > 32400 and time < 43200) or (time > 46800 and time < 59400)) then
+  --     if (appName == "Tweetbot" or appName == "Newton") then
+  --       if (eventType == hs.application.watcher.activated or
+  --           eventType == hs.application.watcher.launching) then
+  --         appObject:kill()
+  --       end
+  --     end
+  --   end
+  -- end
 
   -- if (appName == "Things") then
     -- if (eventType == hs.application.watcher.activated) then
@@ -288,7 +301,7 @@ function applicationWatcherCallback(appName, eventType, appObject)
       -- app just lost focus, enable our hotkeys
     -- end
   -- end
-end
+-- end
 
 -- Create and start the application event watcher
 -- watcher = hs.application.watcher.new(applicationWatcherCallback)
