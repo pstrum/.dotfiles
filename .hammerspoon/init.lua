@@ -4,6 +4,10 @@ local hotkey = require "hs.hotkey"
 local alert = require "hs.alert"
 local pasteboard = require "hs.pasteboard"
 local timer = require "hs.timer"
+local http = require "hs.http"
+local json = require "hs.json"
+local location = require "hs.location"
+local osascript = require "hs.osascript"
 
 local keys = require "keys"
 -- require "triggers"
@@ -77,7 +81,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Mail")
+  hs.application.launchOrFocus("Paw")
 end)
 
 -- hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
@@ -124,18 +128,15 @@ hs.hotkey.bind({"option", "cmd"}, "p", function()
   hs.application.launchOrFocus("Postman")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
-  local dayofweek = os.date("%A")
-  local month = os.date("%B")
-  local day = os.date(" %d"):gsub(" 0","")
-  local year = os.date("%Y")
-  local strDate = "# " .. dayofweek .. ", " .. month .. " " .. day .. ", " .. year
-  local date = "%23%20" .. dayofweek .. "%2C%20" .. month .. "%20" .. day .. "%2C%20" .. year .. "%0A%0A%0A"
-  local newJournal = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
-  local openUlysses = "ulysses://x-callback-url/new-sheet?group=Inbox"
-  hs.pasteboard.writeObjects(strDate)
-  hs.urlevent.openURLWithBundle(openUlysses, "com.ulyssesapp.mac")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
+  -- local newJournal = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
+  -- local openUlysses = "ulysses://x-callback-url/new-sheet?group=Inbox"
+  -- hs.pasteboard.writeObjects(strDate)
+  -- hs.urlevent.openURLWithBundle(newJournal, "com.ulyssesapp.mac")
+  -- hs.application.launchOrFocus("UlyssesMac")
+
+  -- getJournalData()
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
   hs.urlevent.openURLWithBundle("https://itunes.apple.com/us/curator/rocket-hour/id993269779", "com.apple.Safari")
@@ -186,6 +187,82 @@ hs.hotkey.bind({"cmd", "ctrl"}, "6", function()
   win:setSize(1850, 1250)
   win:centerOnScreen()
 end)
+
+function getJournalData()
+  getDate()
+  getMusicData()
+end
+
+function encode(str)
+  -- local encoded = hs.osascript.javascript([[ encodeURIComponent(str) ]])
+  local source = "encodeURIComponent(" .. str .. ")"
+  local encoded = hs.osascript._osascript(source,"javascript")
+  print(encoded);
+end
+
+function getDate()
+  local dayofweek = os.date("%A")
+  local month = os.date("%B")
+  local day = os.date(" %d"):gsub(" 0","")
+  local year = os.date("%Y")
+  local strDate = "# " .. dayofweek .. ", " .. month .. " " .. day .. ", " .. year
+  local date = "%23%20" .. dayofweek .. "%2C%20" .. month .. "%20" .. day .. "%2C%20" .. year .. "%0A%0A%0A"
+  journalDate = date
+end
+
+function getMusicData()
+  local url = 'https://api.music.apple.com/v1/me/recent/played'
+  headers = {}
+  headers["Music-User-Token"] = "AhRpR3802GNahAK0Fhe8NNsbpwmRof+ACsRLuOzzJ1sSG0RjRSPwrIlXCy/NupQMKFmZ6lBQDEm4Teq+t5ZglXsh0jl1xcAl63WTibKSapGjq28XQwnOTZKSVtI+yxpFrTrgYx5m8LV51OIJogehwMZLI/8l7IDTcovAlGPhtA0R9yWgsL+WeU3iEUkaY64MZs8WtdJhcaWYsF9T1/0asTYIHtSP0W0c7LTwUQuG/NAcyTCjQA=="
+  headers["Authorization"] = "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6Iko0REFXN0xGN0QifQ.eyJpc3MiOiJUSDM5MzUzMjJRIiwiaWF0IjoxNTcyNTQ0NzIwLCJleHAiOjE1ODgzMjE3MjB9.ysNJwosyn9S-ouDL-LSpVIK5nbQL4wf50AuFoP9FE6YpnHiIne61SCh9hiuOj7eSgifIxwQF3TajyncXeNzuKg"
+  hs.http.asyncGet(url, headers, getMusicCallback)
+end
+
+function getMusicCallback(status, body, headers)
+  local response = hs.json.decode(body);
+  local name = response["data"][1].attributes.name
+  local url = response["data"][1].attributes.url
+  journalMusic = " • [" .. name .. "](" .. url .. ")"
+  -- encode(journalMusic)
+  getLocationData()
+end
+
+function getLocationData()
+  local locationAvailable = hs.location.servicesEnabled()
+  local locationTracking = hs.location.start()
+
+  if (locationAvailable) then
+    sleep(1)
+    local locationDetails = hs.location.get()
+
+    if (locationDetails) then
+      hs.location.geocoder.lookupLocation(locationDetails, getAddressCallback)
+    end
+  end
+end
+
+function sleep(n)
+  os.execute("sleep " .. tonumber(n))
+end
+
+function getAddressCallback(state, result)
+  local street = result[1].name
+  local city = result[1].locality
+  local state = result[1].administrativeArea
+  journalAddress = street .. ", " .. city .. ", " .. state
+  getWeather()
+end
+
+function getWeather()
+  journalWeather = ""
+  createJournalEntry()
+end
+
+function createJournalEntry()
+  local newJournal = "bear://x-callback-url/create?edit=yes&text=%23%20%0A%0A" .. journalDate .. "%0A" .. journalAddress .. "%0A" .. journalWeather .. journalMusic .. "%0A%0A%23writing%2Fjournal"
+  print(newJournal)
+  hs.urlevent.openURLWithBundle(newJournal, "net.shinyfrog.bear")
+end
 
 -- a callback function to be called when application events happen
 function applicationWatcherCallback(appName, eventType, appObject)
