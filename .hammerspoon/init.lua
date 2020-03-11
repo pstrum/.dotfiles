@@ -36,7 +36,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
   hs.application.launchOrFocus("Sketch")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "v", function()
+hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
   hs.application.launchOrFocus("Sublime Merge")
 end)
 
