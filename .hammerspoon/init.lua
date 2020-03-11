@@ -65,7 +65,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
-  hs.application.launchOrFocus("Sublime Text")
+  hs.application.launchOrFocus("Visual Studio Code")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "u", function()
