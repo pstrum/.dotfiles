@@ -33,7 +33,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
-  hs.application.launchOrFocus("Sketch")
+  -- hs.application.launchOrFocus("Sketch")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
@@ -53,7 +53,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
-  hs.application.launchOrFocus("Slack")
+  -- hs.application.launchOrFocus("Slack")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
