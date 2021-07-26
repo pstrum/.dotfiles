@@ -87,6 +87,10 @@ export PATH="$PATH:`yarn global bin`"
 export PATH=/bin:/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:$PATH
 export EDITOR='subl -w'
 
+function cu {
+   ${HOME}/projects/copper/copper/packages/cucmd/bin/run "$@"
+}
+
 test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
 
 ulimit -n 1024

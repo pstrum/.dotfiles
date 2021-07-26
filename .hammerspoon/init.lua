@@ -25,7 +25,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "h", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
-  hs.application.launchOrFocus("Bear")
+  hs.application.launchOrFocus("Craft")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
@@ -33,7 +33,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "k", function()
-  -- hs.application.launchOrFocus("Sketch")
+  hs.application.launchOrFocus("Figma")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
@@ -41,7 +41,11 @@ hs.hotkey.bind({"cmd", "ctrl"}, "v", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
-  hs.application.launchOrFocus("Music")
+  hs.application.launchOrFocus("Spotify")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "e", function()
+  hs.application.launchOrFocus("Endel")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "t", function()
@@ -53,7 +57,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
-  -- hs.application.launchOrFocus("Slack")
+  hs.application.launchOrFocus("Slack")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
@@ -64,16 +68,20 @@ hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
   hs.application.launchOrFocus("Cardhop")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "l", function()
   hs.application.launchOrFocus("Visual Studio Code")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "l", function()
-  hs.application.launchOrFocus("Sublime Text")
+hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
+  hs.application.launchOrFocus("Webstorm")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "u", function()
   hs.application.launchOrFocus("Things3")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+  hs.application.launchOrFocus("Tot")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "o", function()
@@ -85,15 +93,15 @@ hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Paw")
+  hs.application.launchOrFocus("Simulator")
 end)
 
--- hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
---   hs.application.launchOrFocus("Simulator")
--- end)
+hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
+  hs.application.launchOrFocus("Hey")
+end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
-  hs.application.launchOrFocus("Fantastical 2")
+  hs.application.launchOrFocus("Fantastical")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
@@ -108,9 +116,9 @@ hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
   hs.application.launchOrFocus("Safari")
 end)
 
--- hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
---   hs.application.launchOrFocus("xcode")
--- end)
+hs.hotkey.bind({"cmd", "ctrl"}, "x", function()
+  hs.application.launchOrFocus("xcode")
+end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "c", function()
   hs.application.launchOrFocus("Logic Pro X")
@@ -121,11 +129,12 @@ hs.hotkey.bind({"cmd", "ctrl"}, "c", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "w", function()
-  hs.application.launchOrFocus("iA Writer")
+  hs.application.launchOrFocus("UlyssesMac")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "s", function()
-  hs.application.launchOrFocus("Spotify")
+  local shell_command = "open " .. "~/Documents/Screenshots"
+  hs.execute(shell_command)
 end)
 
 hs.hotkey.bind({"option", "cmd"}, "p", function()
@@ -159,6 +168,10 @@ hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
   hs.urlevent.openURLWithBundle("https://itunes.apple.com/us/curator/rocket-hour/id993269779", "com.apple.Safari")
 end)
 
+hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
+  hs.urlevent.openURLWithBundle("https://github.com/copperapp/copper/pulls", "com.google.Chrome")
+end)
+
 hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
   hs.urlevent.openURLWithBundle("bear://x-callback-url/search?", "net.shinyfrog.bear")
 end)
@@ -171,7 +184,7 @@ hs.hotkey.bind({"cmd", "ctrl"}, "7", function()
   hs.urlevent.openURLWithBundle("bear://x-callback-url/open-note?id=0DD570AF-CC9A-4D21-BFC1-0064F6DE1F83-470-000019AD2A7BF97C", "net.shinyfrog.bear")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "H", function()
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "R", function()
   hs.reload()
 end)
 

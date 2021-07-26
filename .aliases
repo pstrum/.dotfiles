@@ -8,7 +8,14 @@ alias dp="SITE_BRAND=definitive vagrant provision"
 alias pu="SITE_BRAND=polk vagrant up"
 alias pp="SITE_BRAND=polk vagrant provision"
 alias su="cd ~/projects/Sound-United-Web"
-alias pags="cd ~/projects/pagliacci-web"
+
+# Copper
+alias copper="cd ~/projects/copper"
+alias app="cd ~/projects/copper/packages/app"
+alias admin="cd ~/projects/copper/packages/admin"
+alias gateway="cd ~/projects/copper/packages/gateway"
+alias initialfamily="cd ~/projects/copper/packages/app && cu test:users:create --env dev --paramsFile ~/projects/copper_test_data/initial_family.json"
+alias ios14="npx react-native run-ios --scheme Copper-Debug --simulator='iPhone 11 Pro (14)'"
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -19,10 +26,12 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
+alias cu="~/projects/copper/packages/cucmd/bin/run"
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
 alias p="cd ~/projects"
+alias dev="cd ~/dev"
 alias ic="cd ~/Library/Mobile\ Documents/"
 alias icd="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/"
 alias u="cd ~/Library/Mobile\ Documents/X5AZV975AG~com~soulmen~ulysses3/Documents/Library"
