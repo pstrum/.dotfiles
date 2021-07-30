@@ -202,13 +202,14 @@ end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "4", function()
   local win = hs.window.focusedWindow()
-  win:setSize(1230, 800)
-  win:centerOnScreen()
+  -- win:setSize(1300, 930)
+  -- win:centerOnScreen()
+  win:moveToUnit("[1.75,3,70,97]")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "5", function()
   local win = hs.window.focusedWindow()
-  win:setSize(1430, 1200)
+  win:setSize(1430, 1000)
   win:centerOnScreen()
 end)
 
