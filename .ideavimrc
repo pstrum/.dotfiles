@@ -1,0 +1,18 @@
+""" Map leader to space ---------------------
+let mapleader=","
+
+""" Common settings -------------------------
+set NERDTree
+set scrolloff=5
+set incsearch
+set ignorecase
+
+""" Mappings --------------------------------
+map Q gq
+map <leader>ci <Action>(CommentByLineComment)
+map <leader>l <Action>(NextSplitter)
+map <leader>h <Action>(PrevSplitter)
+map <leader>gh <Action>(ShowErrorDescription)
+map <leader>f <Action>(FindUsages)
+map <leader>p <Action>(SelectIn)
+map <leader>sd <Action>(SafeDelete)
