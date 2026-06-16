@@ -44,6 +44,9 @@ bindkey '^ ' autosuggest-accept
 
 setopt autocd
 
+# --- ruby (rbenv) — for Bundler/CocoaPods/fastlane ---
+command -v rbenv >/dev/null && eval "$(rbenv init - zsh)"
+
 # --- PATH ---
 export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
