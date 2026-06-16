@@ -41,11 +41,20 @@ if ! command -v brew >/dev/null 2>&1; then
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
-echo "==> brew bundle"
-brew bundle --file="$DOTFILES_DIR/Brewfile"
+
+echo "==> Shell essentials (always — so the symlinked .zshrc loads cleanly)"
+brew install pure zsh-autosuggestions zsh-syntax-highlighting
 
 echo "==> nvm (official installer -> ~/.nvm; matches .zshrc, PROFILE=/dev/null so it doesn't edit .zshrc)"
 [ -d "$HOME/.nvm" ] || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/dev/null bash
+
+# Heavy app/cask bundle (Android Studio, Docker, etc.). Skip with: SKIP_BUNDLE=1 ./install.sh
+if [ -n "${SKIP_BUNDLE:-}" ]; then
+  echo "==> Skipping brew bundle (SKIP_BUNDLE set) — run 'brew bundle --file=~/.dotfiles/Brewfile' later"
+else
+  echo "==> brew bundle (full Brewfile)"
+  brew bundle --file="$DOTFILES_DIR/Brewfile"
+fi
 
 echo "==> Default shell"
 [ "$SHELL" = "/bin/zsh" ] || chsh -s /bin/zsh
