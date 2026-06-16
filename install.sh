@@ -44,6 +44,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo "==> brew bundle"
 brew bundle --file="$DOTFILES_DIR/Brewfile"
 
+echo "==> nvm (official installer -> ~/.nvm; matches .zshrc, PROFILE=/dev/null so it doesn't edit .zshrc)"
+[ -d "$HOME/.nvm" ] || curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | PROFILE=/dev/null bash
+
 echo "==> Default shell"
 [ "$SHELL" = "/bin/zsh" ] || chsh -s /bin/zsh
 

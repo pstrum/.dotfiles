@@ -5,7 +5,8 @@
 # --- CLI / formulae ---
 brew "gh"
 brew "git-lfs"          # .gitconfig requires the lfs filters
-brew "fnm"              # node version manager (faster than nvm; or keep nvm)
+# Node: nvm is installed via its official script into ~/.nvm (see install.sh), NOT brew,
+# so the .zshrc `source $NVM_DIR/nvm.sh` hook works as-is.
 brew "watchman"         # React Native
 brew "cocoapods"        # RN iOS (or install via gem against rbenv ruby)
 brew "rbenv"            # clean Ruby for cocoapods/fastlane (replaces RVM)
