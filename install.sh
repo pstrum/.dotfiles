@@ -30,6 +30,13 @@ ln -sf "$DOTFILES_DIR/zed/keymap.json"   "$HOME/.config/zed/keymap.json"
 SM="$HOME/Library/Application Support/Sublime Merge/Packages/User"
 mkdir -p "$SM" && cp -R "$DOTFILES_DIR/sublime-merge/." "$SM/"
 
+echo "==> iTerm2 — load preferences (incl. profiles) from this repo"
+# Point iTerm at iterm/ in the repo. It reads com.googlecode.iterm2.plist from there on launch.
+# (Quit iTerm before running this so it doesn't overwrite these keys on exit.)
+defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$DOTFILES_DIR/iterm"
+defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+echo "  iTerm will load from $DOTFILES_DIR/iterm (restart iTerm to apply)"
+
 echo "==> Work config"
 if [ ! -f "$HOME/.zshrc.work" ]; then
   cp "$DOTFILES_DIR/.zshrc.work.example" "$HOME/.zshrc.work"

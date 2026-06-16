@@ -27,7 +27,16 @@ the example, installs Homebrew, and runs `brew bundle` against the `Brewfile`.
 | `.gitconfig-work` | identity for repos under `~/Developer/Work/` (`peter@getcopper.com`) |
 | `Brewfile` | `brew bundle` package list |
 | `zed/`, `sublime-merge/` | editor settings |
+| `iterm/` | iTerm2 prefs + profiles; `install.sh` points iTerm's "custom folder" here |
 | `.hammerspoon/`, `.vimrc`, `.ideavimrc`, `.inputrc` | misc config |
+
+### iTerm2
+
+iTerm loads its prefs (including profiles) from `iterm/` in this repo via its built-in
+"Load preferences from a custom folder or URL" feature — `install.sh` sets that automatically.
+After changing iTerm settings, iTerm writes them back to `iterm/com.googlecode.iterm2.plist`
+(it may convert it to binary plist format); just `git commit` the change. To avoid two machines
+fighting over it, keep iTerm's save mode set to **Manually** if more than one Mac uses this repo.
 
 ## Manual follow-ups after `install.sh`
 
