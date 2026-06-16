@@ -1,0 +1,11 @@
+# Work Git identity — applies only to repos under ~/Developer/Work/ (Copper, Linqed).
+[user]
+  name = Peter Strumolo
+  email = peter@getcopper.com
+  # If Copper requires signed commits, generate a work key for peter@getcopper.com
+  # and put its ID here (otherwise leave commented and set commit.gpgsign=false below):
+  signingkey = REPLACE_WITH_WORK_GPG_KEYID
+
+# If Copper uses a dedicated work SSH key, uncomment:
+# [core]
+#   sshCommand = ssh -i ~/.ssh/id_ed25519_copper

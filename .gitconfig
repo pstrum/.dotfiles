@@ -111,6 +111,7 @@
   # http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
   precomposeunicode = false
   editor = "mvim -v"
+	autocrlf = input
 
 [color]
 
@@ -161,7 +162,7 @@
   # Use the Git 1.x.x default to avoid errors on machines with old Git
   # installations. To use `simple` instead, add this to your `~/.extra` file:
   # `git config --global push.default simple`. See http://git.io/mMah-w.
-  default = matching
+	default = current
   # Make `git push` push relevant annotated tags when pushing branches out.
   followTags = true
 
@@ -186,9 +187,12 @@
 [url "git://gist.github.com/"]
 
   insteadOf = "gist:"
-[user]
-  email = pstrum@gmail.com
-  name = pstrum
+# Identity is set per-folder via includes (see .gitconfig-personal / .gitconfig-work).
+# Personal is the default; work identity applies to any repo under ~/Developer/Work/.
+[include]
+  path = ~/.gitconfig-personal
+[includeIf "gitdir:~/Developer/Work/"]
+  path = ~/.gitconfig-work
 [pull]
   rebase = true
 [filter "lfs"]
@@ -196,3 +200,7 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+[gpg]
+	program = gpg2
+[commit]
+	gpgsign = true

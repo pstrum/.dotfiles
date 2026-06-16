@@ -1,21 +1,5 @@
-# TEMPORARY
-# =========
-alias kuow-stage="ng build --configuration=stage && eb deploy kuow-admin-stage" # Deploy KUOW Staging
-alias kuow-dev="ng build && eb deploy kuow-admin-dev" # Deploy KUOW Dev
-alias kuow-prod="ng build --configuration=production && eb deploy kuow-admin-prod" # Deploy KUOW Dev
-alias du="SITE_BRAND=definitive vagrant up"
-alias dp="SITE_BRAND=definitive vagrant provision"
-alias pu="SITE_BRAND=polk vagrant up"
-alias pp="SITE_BRAND=polk vagrant provision"
-alias su="cd ~/projects/Sound-United-Web"
-
-# Copper
-alias copper="cd ~/projects/copper"
-alias app="cd ~/projects/copper/packages/app"
-alias admin="cd ~/projects/copper/packages/admin"
-alias gateway="cd ~/projects/copper/packages/gateway"
-alias initialfamily="cd ~/projects/copper/packages/app && cu test:users:create --env dev --paramsFile ~/projects/copper_test_data/initial_family.json"
-alias ios14="npx react-native run-ios --scheme Copper-Debug --simulator='iPhone 11 Pro (14)'"
+# NOTE: Work-specific aliases (Copper/Linqed nav, cu, deploys) live in ~/.zshrc.work
+# (see .zshrc.work.example) so this committed file stays free of company paths.
 
 # Easier navigation: .., ..., ...., ....., ~ and -
 alias ..="cd .."
@@ -26,7 +10,7 @@ alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
 # Shortcuts
-alias cu="~/projects/copper/packages/cucmd/bin/run"
+alias bearcli="/Applications/Bear.app/Contents/MacOS/bearcli"
 alias d="cd ~/Dropbox"
 alias dl="cd ~/Downloads"
 alias dt="cd ~/Desktop"
@@ -38,6 +22,7 @@ alias u="cd ~/Library/Mobile\ Documents/X5AZV975AG~com~soulmen~ulysses3/Document
 alias ul="cd ~/Library/Mobile\ Documents/X5AZV975AG~com~soulmen~ulysses3/Documents/Library/Groups-ulgroup/de46ba1eef3442328e57a9d27f1d3366-ulgroup"
 alias n="cd ~/projects/notes"
 alias g="git"
+alias sha="git rev-parse HEAD"
 alias h="history"
 alias j="jobs"
 alias m="cd ~/moby"
@@ -56,6 +41,8 @@ alias sublime_user="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/Sublime/U
 alias kibana="ssh estunnelkuowdev -N"
 alias hammer="subl ~/.dotfiles/.hammerspoon/init.lua"
 alias playground="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs/code/playground"
+alias brew='arch -arm64 /opt/homebrew/bin/brew'
+alias tfenv='arch -arm64 /opt/homebrew/bin/tfenv'
 shellspeed () {
   for i in $(seq 1 10); do /usr/bin/time $SHELL -i -c exit; done
 }
@@ -193,3 +180,8 @@ alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resource
 
 # Reload the shell (i.e. invoke as a login shell)
 alias reload="exec $SHELL -l"
+
+# Sync exported Swinsian playlists into Plex (Swinsian is the source of truth).
+# Re-reads the Plex admin token fresh each run so it survives token rotation.
+# Append --dry-run to preview without changing Plex.
+alias sync-plex-playlists='PLEX_TOKEN="$(cat "$HOME/Library/Application Support/Plex Media Server/.LocalAdminToken" 2>/dev/null)" python3 "/Volumes/alpaca/Music Library/sync_plex_playlists.py"'

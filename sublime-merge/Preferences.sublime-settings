@@ -1,0 +1,9 @@
+{
+	"font_face": "MonoLisa Medium",
+	"font_size": 13,
+	"tab_size": 2,
+	"theme": "auto",
+	"side_bar_layout": "tabs",
+	"editor_path": "/Applications/WebStorm.app",
+	"render_commit_dialog_message_at_top": true,
+}

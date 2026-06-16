@@ -61,19 +61,21 @@ export ANDROID_HOME=${HOME}/Library/Android/sdk/
 export PATH=${PATH}:${HOME}/Library/Android/sdk/platform-tools:${HOME}/Library/Android/sdk/tools
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_131.jdk/Contents/Home
 
+# Work secrets (DataDog, App Center) are NOT stored here — see ~/.zshrc.work (gitignored).
+
 # Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh" # This loads nvm
 
 # Set Node version per project
-enter_directory(){
-  if [ "$PWD" != "$PREV_PWD" ]; then
-    PREV_PWD="$PWD";
-    if [ -e ".nvmrc" ]; then
-      nvm use;
-    fi
-  fi
-}
+# enter_directory(){
+  # if [ "$PWD" != "$PREV_PWD" ]; then
+    # PREV_PWD="$PWD";
+    # if [ -e ".nvmrc" ]; then
+      # nvm use;
+    # fi
+  # fi
+# }
 export PROMPT_COMMAND="$PROMPT_COMMAND enter_directory;"
 
 # Add Yarn binaries to PATH

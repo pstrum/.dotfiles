@@ -1,0 +1,10 @@
+[
+    {
+        "keys": ["super+alt+up"],
+        "command": "push"
+    },
+    {
+        "keys": ["super+alt+down"],
+        "command": "pull"
+    }
+]

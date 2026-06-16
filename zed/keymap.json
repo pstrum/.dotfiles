@@ -1,0 +1,180 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Picker > Editor",
+    "bindings": {
+      "ctrl-h": null,
+    },
+  },
+  {
+    "context": "Editor && vim_mode == literal",
+    "bindings": {
+      "ctrl-h": null,
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-h": "pane::ActivatePreviousItem",
+      "ctrl-l": "pane::ActivateNextItem",
+      "cmd-l": "editor::Hover",
+      "ctrl-.": "editor::ShowEditPrediction",
+      "tab": "editor::AcceptEditPrediction",
+      "cmd-right": "editor::AcceptNextWordEditPrediction",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "^H": "pane::ActivatePreviousItem",
+      "^L": "pane::ActivateNextItem",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "cmd-k cmd-h": "agent::ToggleFocus",
+    },
+  },
+  {
+    "context": "Workspace",
+    "unbind": {
+      "cmd-?": "agent::ToggleFocus",
+    },
+  },
+  {
+    "bindings": {
+      "shift-c shift-c": "agent::Toggle",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-cmd-shift-j": "editor::GoToHunk",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "unbind": {
+      "] c": "editor::GoToHunk",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "ctrl-cmd-shift-k": "editor::GoToPreviousHunk",
+    },
+  },
+  {
+    "context": "vim_mode == normal",
+    "unbind": {
+      "[ c": "editor::GoToPreviousHunk",
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-j": [
+        "editor::GoToDiagnostic",
+        {
+          "severity": {
+            "min": "hint",
+            "max": "error",
+          },
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "f8": [
+        "editor::GoToDiagnostic",
+        {
+          "severity": {
+            "min": "hint",
+            "max": "error",
+          },
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-k": [
+        "editor::GoToPreviousDiagnostic",
+        {
+          "severity": {
+            "min": "hint",
+            "max": "error",
+          },
+        },
+      ],
+    },
+  },
+  {
+    "context": "Editor",
+    "unbind": {
+      "shift-f8": [
+        "editor::GoToPreviousDiagnostic",
+        {
+          "severity": {
+            "min": "hint",
+            "max": "error",
+          },
+        },
+      ],
+    },
+  },
+  {
+    "context": "AcpThread > Editor",
+    "bindings": {
+      "ctrl-cmd-[": "agent::ScrollOutputToPreviousMessage",
+    },
+  },
+  {
+    "context": "AcpThread > Editor",
+    "unbind": {
+      "ctrl-alt-pageup": "agent::ScrollOutputToPreviousMessage",
+    },
+  },
+  {
+    "context": "AcpThread > Editor",
+    "bindings": {
+      "ctrl-cmd-]": "agent::ScrollOutputToNextMessage",
+    },
+  },
+  {
+    "context": "AcpThread > Editor",
+    "unbind": {
+      "ctrl-alt-pagedown": "agent::ScrollOutputToNextMessage",
+    },
+  },
+  {
+    "context": "AcpThread > Editor && vim_mode == insert",
+    "bindings": {
+      "enter": "editor::Newline",
+    },
+  },
+  {
+    "context": "AcpThread > Editor && vim_mode == normal",
+    "bindings": {
+      "enter": "agent::Chat",
+      "ctrl-j": "agent::ScrollOutputLineDown",
+      "ctrl-k": "agent::ScrollOutputLineUp",
+    },
+  },
+  {
+    "context": "vim_mode == normal || vim_mode == visual",
+    "bindings": {
+      ", c i": "editor::ToggleComments",
+    },
+  },
+]

@@ -12,3 +12,11 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# Local, machine-specific work config (secrets, Copper/Linqed fns) — never commit
+.zshrc.work
+
+# Editor / plugin cruft that shouldn't be tracked
+.idea/
+.vim/bundle/
+zsh-syntax-highlighting/

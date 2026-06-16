@@ -18,14 +18,24 @@ local keys = require "keys"
 -- keys.deactivateKeys()
 -- keys.activateKeys()
 
+local defaultBrowser = "Safari"
+-- "Google Chrome"
+
+local browserId = "com.apple.Safari"
+-- com.google.Chrome
+-- company.thebrowser.Browser
+-- com.vivaldi.Vivaldi
+-- com.apple.Safari
+-- com.kagi.kagimacOS
+
 alert.show("Hammerspoon loaded!")
 
 hs.hotkey.bind({"cmd", "ctrl"}, "h", function()
-  hs.application.launchOrFocus("Google Chrome")
+  hs.application.launchOrFocus(defaultBrowser)
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
-  hs.application.launchOrFocus("Craft")
+  hs.application.launchOrFocus("Jiffy")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "i", function()
@@ -42,6 +52,10 @@ end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "i", function()
   hs.application.launchOrFocus("Spotify")
+end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "a", function()
+  hs.application.launchOrFocus("iA Writer")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl", "shift"}, "e", function()
@@ -61,28 +75,35 @@ hs.hotkey.bind({"cmd", "ctrl"}, "n", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
-  hs.application.launchOrFocus("Messages")
+  hs.application.launchOrFocus("ChatGPT")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
-  hs.application.launchOrFocus("Cardhop")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, ",", function()
+--   hs.application.launchOrFocus("Messages")
+-- end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "l", function()
-  hs.application.launchOrFocus("Visual Studio Code")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
+--   hs.application.launchOrFocus("Cardhop")
+-- end)
+
+-- hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
+--   hs.application.launchOrFocus("Visual Studio Code")
+-- end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "j", function()
+  -- hs.application.launchOrFocus("Webstorm")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "l", function()
-  hs.application.launchOrFocus("Webstorm")
+  hs.application.launchOrFocus("Zed")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "u", function()
   hs.application.launchOrFocus("Things3")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
-  hs.application.launchOrFocus("Tot")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl"}, "t", function()
+--   hs.application.launchOrFocus("Tot")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "o", function()
   hs.application.launchOrFocus("Dash")
@@ -92,12 +113,16 @@ hs.hotkey.bind({"cmd", "ctrl"}, "d", function()
   hs.application.launchOrFocus("Day One")
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
-  hs.application.launchOrFocus("Simulator")
+-- hs.hotkey.bind({"cmd", "ctrl"}, "p", function()
+  -- hs.application.launchOrFocus("Simulator")
+-- end)
+
+hs.hotkey.bind({"cmd", "ctrl", "shift"}, "e", function()
+  hs.application.launchOrFocus("Mimestream")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "e", function()
-  hs.application.launchOrFocus("Hey")
+  hs.application.launchOrFocus("HEY")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "f", function()
@@ -112,9 +137,9 @@ end)
   -- hs.application.launchOrFocus("Firefox")
 -- end)
 
-hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
-  hs.application.launchOrFocus("Safari")
-end)
+-- hs.hotkey.bind({"cmd", "ctrl", "shift"}, "s", function()
+  -- hs.application.launchOrFocus("Safari")
+-- end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "x", function()
   hs.application.launchOrFocus("xcode")
@@ -144,7 +169,8 @@ end)
 -- hs.hotkey.bind({"cmd", "ctrl"}, "1", function()
   -- local newJournal = "ulysses://x-callback-url/new-sheet?text=" .. date .. "&group=Journal&index=0"
   -- local openUlysses = "ulysses://x-callback-url/new-sheet?group=Inbox"
-  -- hs.pasteboard.writeObjects(strDate)
+  -- hs.pasteboard
+  -- writeObjects(strDate)
   -- hs.urlevent.openURLWithBundle(newJournal, "com.ulyssesapp.mac")
   -- hs.application.launchOrFocus("UlyssesMac")
 
@@ -169,11 +195,15 @@ hs.hotkey.bind({"cmd", "ctrl"}, "9", function()
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "r", function()
-  hs.urlevent.openURLWithBundle("https://github.com/copperapp/copper/pulls", "com.google.Chrome")
+  hs.urlevent.openURLWithBundle("https://github.com/copperapp/copper/pulls", browserId)
 end)
 
-hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
-  hs.urlevent.openURLWithBundle("bear://x-callback-url/search?", "net.shinyfrog.bear")
+-- hs.hotkey.bind({"cmd", "ctrl"}, "b", function()
+--   hs.urlevent.openURLWithBundle("bear://x-callback-url/search?", "net.shinyfrog.bear")
+-- end)
+
+hs.hotkey.bind({"cmd", "ctrl"}, "m", function()
+  hs.application.launchOrFocus("Amie")
 end)
 
 hs.hotkey.bind({"cmd", "ctrl"}, "8", function()
@@ -217,6 +247,24 @@ hs.hotkey.bind({"cmd", "ctrl"}, "6", function()
   local win = hs.window.focusedWindow()
   win:setSize(1850, 1250)
   win:centerOnScreen()
+end)
+
+hs.hotkey.bind({"ctrl", "option"}, "return", function()
+  local win = hs.window.focusedWindow()
+  local unit = hs.layout.maximized;
+  win:moveToUnit(unit)
+end)
+
+hs.hotkey.bind({"ctrl", "option"}, "left", function()
+  local win = hs.window.focusedWindow()
+  local unit = hs.layout.left50;
+  win:moveToUnit(unit)
+end)
+
+hs.hotkey.bind({"ctrl", "option"}, "right", function()
+  local win = hs.window.focusedWindow()
+  local unit = hs.layout.right50;
+  win:moveToUnit(unit)
 end)
 
 function getJournalData()
@@ -296,34 +344,26 @@ function createJournalEntry()
 end
 
 -- a callback function to be called when application events happen
--- function applicationWatcherCallback(appName, eventType, appObject)
---   local time = timer.localTime()
---   local day = os.date("%A")
+function applicationWatcherCallback(appName, eventType, appObject)
+  local time = timer.localTime()
+  local day = os.date("%A")
 
   -- No Twitter or Email M-F between 9am-12pm or 1pm-430pm
-  -- if (day ~= "Saturday" or day ~= "Sunday") then
-  --   if ((time > 32400 and time < 43200) or (time > 46800 and time < 59400)) then
-  --     if (appName == "Tweetbot" or appName == "Newton") then
-  --       if (eventType == hs.application.watcher.activated or
-  --           eventType == hs.application.watcher.launching) then
-  --         appObject:kill()
-  --       end
-  --     end
-  --   end
-  -- end
-
-  -- if (appName == "Things") then
-    -- if (eventType == hs.application.watcher.activated) then
-      -- app just got focus, disable our hotkeys
-    -- elseif (eventType == hs.application.watcher.deactivated) then
-      -- app just lost focus, enable our hotkeys
-    -- end
-  -- end
--- end
+  if (day ~= "Saturday" or day ~= "Sunday") then
+    if ((time > 32400 and time < 43200) or (time > 46800 and time < 59400)) then
+      if (appName == "Tweetbot") then
+        if (eventType == hs.application.watcher.activated or
+            eventType == hs.application.watcher.launching) then
+          appObject:kill()
+        end
+      end
+    end
+  end
+end
 
 -- Create and start the application event watcher
--- watcher = hs.application.watcher.new(applicationWatcherCallback)
--- watcher:start()
+watcher = hs.application.watcher.new(applicationWatcherCallback)
+watcher:start()
 
 -- Close notifications
 script = [[

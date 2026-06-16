@@ -1,0 +1,8 @@
+# Personal Git identity (default — applies everywhere except ~/Developer/Work/).
+[user]
+  name = pstrum
+  email = pstrum@gmail.com
+  # Generate a fresh personal GPG key on the new Mac, then put its ID here:
+  #   gpg --full-generate-key   (ed25519, UID: Peter Strumolo <pstrum@gmail.com>)
+  #   gpg --list-secret-keys --keyid-format=long
+  signingkey = REPLACE_WITH_PERSONAL_GPG_KEYID

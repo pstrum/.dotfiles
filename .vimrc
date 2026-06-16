@@ -284,6 +284,8 @@ cmap w!! %!sudo tee > /dev/null
 set noerrorbells visualbell t_vb=
 autocmd GUIEnter * set visualbell t_vb=
 
+let NERDTreeShowHidden=1
+
 " NerdCommenter Space
 let NERDSpaceDelims=1
 
