@@ -11,6 +11,9 @@ export AWS_SHARED_CREDENTIALS_FILE="$COPPER/.aws/credentials"
 export AWS_CONFIG_FILE="$COPPER/.aws/config"
 export AWS_SDK_LOAD_CONFIG=true
 
+# Copper requires amd64 emulation for its Docker images
+export DOCKER_DEFAULT_PLATFORM=linux/amd64
+
 # --- Secrets via 1Password CLI (op) — NOT hardcoded. Requires `op` + signin. ---
 # These were previously hardcoded (and leaked into git history) — rotate them, then store in 1Password.
 # export DD_API_KEY="$(op read 'op://Work/Datadog/api_key' 2>/dev/null)"
