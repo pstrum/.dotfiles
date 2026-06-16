@@ -4,7 +4,7 @@
   email = peter@getcopper.com
   # If Copper requires signed commits, generate a work key for peter@getcopper.com
   # and put its ID here (otherwise leave commented and set commit.gpgsign=false below):
-  signingkey = REPLACE_WITH_WORK_GPG_KEYID
+  signingkey = C8F067889DFAD502
 
 # If Copper uses a dedicated work SSH key, uncomment:
 # [core]

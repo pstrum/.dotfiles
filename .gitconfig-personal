@@ -5,4 +5,4 @@
   # Generate a fresh personal GPG key on the new Mac, then put its ID here:
   #   gpg --full-generate-key   (ed25519, UID: Peter Strumolo <pstrum@gmail.com>)
   #   gpg --list-secret-keys --keyid-format=long
-  signingkey = REPLACE_WITH_PERSONAL_GPG_KEYID
+  signingkey = C8F067889DFAD502
