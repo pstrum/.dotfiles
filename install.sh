@@ -63,6 +63,17 @@ else
   brew bundle --file="$DOTFILES_DIR/Brewfile"
 fi
 
+echo "==> vim plugins (Vundle + :PluginInstall — installs NERDTree etc. into ~/.vim/bundle, gitignored)"
+[ -d "$HOME/.vim/bundle/Vundle.vim" ] || \
+  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+if command -v mvim >/dev/null 2>&1; then
+  mvim -v +PluginInstall +qall
+elif command -v vim >/dev/null 2>&1; then
+  vim +PluginInstall +qall
+else
+  echo "  (no vim/mvim found — run 'mvim -v +PluginInstall +qall' after MacVim installs)"
+fi
+
 echo "==> Default shell"
 [ "$SHELL" = "/bin/zsh" ] || chsh -s /bin/zsh
 

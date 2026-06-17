@@ -25,11 +25,12 @@ cask "zulu@17"          # Android Studio / Gradle JDK 17
 
 # --- Core dev apps (the ones worth automating; install the rest by hand) ---
 cask "android-studio"
-cask "docker"
+cask "docker-desktop"   # Docker Desktop (the old "docker" cask is now an alias for this)
 cask "sublime-merge"
 cask "1password-cli"
 cask "hammerspoon"
 cask "gpg-suite"        # GPG Keychain
+cask "macvim"           # `vim` is aliased to `mvim -v`; plugins bootstrapped in install.sh
 # Installed manually per your preference: Zed, iTerm2, WebStorm (Toolbox), Charles, Slack, 1Password app
 
 # --- Personal media ---
