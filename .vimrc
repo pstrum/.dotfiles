@@ -3,6 +3,8 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
+" vim-polyglot: must be defined BEFORE the plugin loads (at vundle#end below)
+let g:polyglot_disabled = ['scss']
 call vundle#begin()
 " My Bundles
 Plugin 'VundleVim/Vundle.vim'
@@ -55,8 +57,6 @@ let g:airline_theme='onedark'
 "
 " Atom theme light
 " let g:airline_theme='one'
-
-let g:polyglot_disabled = ['scss']
 
 " Make Vim more useful
 set nocompatible
