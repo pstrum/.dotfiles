@@ -14,6 +14,9 @@ export AWS_SDK_LOAD_CONFIG=true
 # Copper requires amd64 emulation for its Docker images
 export DOCKER_DEFAULT_PLATFORM=linux/amd64
 
+# mysql-client@8.0 is keg-only — put mysql/mysqldump on PATH (Copper DB work)
+export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
+
 # --- Secrets via 1Password CLI (op) — NOT hardcoded. Requires `op` + signin. ---
 # These were previously hardcoded (and leaked into git history) — rotate them, then store in 1Password.
 # export DD_API_KEY="$(op read 'op://Work/Datadog/api_key' 2>/dev/null)"

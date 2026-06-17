@@ -18,7 +18,8 @@ brew "ffmpeg"
 brew "gifsicle"
 brew "pngquant"
 brew "terminal-notifier"
-# brew "mysql@8.0"      # uncomment only if you still run a local MySQL
+brew "tfenv"            # Terraform version manager (Copper infra; run `tfenv install latest`)
+brew "mysql-client@8.0" # mysql/mysqldump client (Copper DB work) — keg-only; PATH set in .zshrc.work
 
 # --- JDK for Android ---
 cask "zulu@17"          # Android Studio / Gradle JDK 17
