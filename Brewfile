@@ -8,7 +8,7 @@ brew "git-lfs"          # .gitconfig requires the lfs filters
 # Node: nvm is installed via its official script into ~/.nvm (see install.sh), NOT brew,
 # so the .zshrc `source $NVM_DIR/nvm.sh` hook works as-is.
 brew "watchman"         # React Native
-brew "cocoapods"        # RN iOS (or install via gem against rbenv ruby)
+# brew "cocoapods"      # Copper uses Bundler (`bundle exec pod install`); enable only for non-Bundler RN projects
 brew "rbenv"            # clean Ruby for cocoapods/fastlane (replaces RVM)
 brew "ruby-build"
 brew "pure"             # zsh prompt
@@ -31,7 +31,7 @@ cask "sublime-merge"
 cask "1password-cli"
 cask "hammerspoon"
 cask "gpg-suite"        # GPG Keychain
-cask "macvim"           # `vim` is aliased to `mvim -v`; plugins bootstrapped in install.sh
+cask "macvim-app"       # (renamed from `macvim`); `vim` aliased to `mvim -v`; plugins bootstrapped in install.sh
 # Installed manually per your preference: Zed, iTerm2, WebStorm (Toolbox), Charles, Slack, 1Password app
 
 # --- Personal media ---
