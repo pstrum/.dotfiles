@@ -18,9 +18,9 @@ export DOCKER_DEFAULT_PLATFORM=linux/amd64
 export PATH="/opt/homebrew/opt/mysql-client@8.0/bin:$PATH"
 
 # --- Secrets via 1Password CLI (op) — NOT hardcoded. Requires `op` + signin. ---
-# These were previously hardcoded (and leaked into git history) — rotate them, then store in 1Password.
-# export DD_API_KEY="$(op read 'op://Work/Datadog/api_key' 2>/dev/null)"
-# export APP_CENTER_KEY="$(op read 'op://Work/AppCenter/token' 2>/dev/null)"
+# The old Datadog key was hardcoded and leaked into git history → it's been rotated; store the new one
+# in 1Password and reference it here with your real op:// path. (App Center was retired.)
+# export DD_API_KEY="$(op read 'op://Work/<datadog-item>/api_key' 2>/dev/null)"
 
 # --- Nav aliases (new ~/Developer/Work layout) ---
 alias copper="cd $COPPER"
