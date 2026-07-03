@@ -18,10 +18,10 @@ local keys = require "keys"
 -- keys.deactivateKeys()
 -- keys.activateKeys()
 
-local defaultBrowser = "Safari"
+local defaultBrowser = "Google Chrome"
 -- "Google Chrome"
 
-local browserId = "com.apple.Safari"
+local browserId = "com.google.Chrome"
 -- com.google.Chrome
 -- company.thebrowser.Browser
 -- com.vivaldi.Vivaldi
