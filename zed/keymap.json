@@ -24,9 +24,14 @@
       "ctrl-h": "pane::ActivatePreviousItem",
       "ctrl-l": "pane::ActivateNextItem",
       "cmd-l": "editor::Hover",
+      "cmd-k cmd-p": "workspace::ActivatePaneDown",
       "ctrl-.": "editor::ShowEditPrediction",
       "tab": "editor::AcceptEditPrediction",
       "cmd-right": "editor::AcceptNextWordEditPrediction",
+      "cmd-shift-u": [
+        "task::Spawn",
+        { "task_name": "Jest: smart run (file or test at cursor)" },
+      ],
     },
   },
   {
@@ -40,6 +45,8 @@
     "context": "Workspace",
     "bindings": {
       "cmd-k cmd-h": "agent::ToggleFocus",
+      "cmd-k cmd-p": "workspace::ActivatePaneUp",
+      "cmd-k j": "workspace::ActivatePaneDown",
     },
   },
   {
@@ -172,9 +179,36 @@
     },
   },
   {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-j": "terminal::ScrollLineDown",
+      "ctrl-k": "terminal::ScrollLineUp",
+    },
+  },
+  {
     "context": "vim_mode == normal || vim_mode == visual",
     "bindings": {
       ", c i": "editor::ToggleComments",
+    },
+  },
+  {
+    "context": "ProjectSearchView > Editor || ProjectSearchBar",
+    "bindings": {
+      "ctrl-shift-j": "search::SelectNextMatch",
+      "ctrl-shift-k": "search::SelectPreviousMatch",
+    },
+  },
+  {
+    "context": "ProjectSearchView > Editor",
+    "unbind": {
+      "ctrl-shift-j": [
+        "editor::GoToDiagnostic",
+        { "severity": { "min": "hint", "max": "error" } },
+      ],
+      "ctrl-shift-k": [
+        "editor::GoToPreviousDiagnostic",
+        { "severity": { "min": "hint", "max": "error" } },
+      ],
     },
   },
 ]
