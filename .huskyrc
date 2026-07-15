@@ -1,1 +1,7 @@
-source ~/.zshrc
+# Sourced by Husky (under /bin/sh) before running git hooks. GUI git clients
+# (Sublime Merge, Tower, VS Code) don't source ~/.zshrc, so nvm's node/yarn
+# aren't on PATH and hooks fail with "yarn: command not found" (exit 127).
+# Keep this POSIX-safe — it runs under sh, not zsh. Don't `source ~/.zshrc`;
+# zsh-only syntax there aborts before nvm loads.
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"

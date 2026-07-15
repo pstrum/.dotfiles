@@ -16,7 +16,7 @@ link() {  # link <src-in-repo> <dest>
 
 echo "==> Symlinking dotfiles"
 for f in .zshrc .aliases .gitconfig .gitconfig-personal .gitconfig-work .gitignore \
-         .gitattributes .vimrc .ideavimrc .inputrc .hushlogin .editorconfig .macos; do
+         .gitattributes .vimrc .ideavimrc .inputrc .hushlogin .editorconfig .macos .huskyrc; do
   link "$f" "$HOME/$f"
 done
 link ".vim" "$HOME/.vim"
