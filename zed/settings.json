@@ -13,6 +13,7 @@
   "lsp_document_colors": "background",
   "terminal": {
     "font_size": 17.0,
+    "font_weight": 500.0,
   },
   "ui_font_family": "MonoLisaText Variable",
   "buffer_font_weight": 500.0,
@@ -37,7 +38,7 @@
   "agent_servers": {
     "claude-acp": {
       "default_config_options": {
-        "model": "opus[1m]",
+        "model": "default",
         "mode": "bypassPermissions"
       },
       "type": "registry",

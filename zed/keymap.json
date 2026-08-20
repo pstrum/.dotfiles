@@ -39,6 +39,7 @@
     "bindings": {
       "^H": "pane::ActivatePreviousItem",
       "^L": "pane::ActivateNextItem",
+      "ctrl-shift-g": "git_panel::Toggle",
     },
   },
   {
