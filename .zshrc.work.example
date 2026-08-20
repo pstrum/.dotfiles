@@ -47,7 +47,14 @@ CU_AC_ZSH_SETUP_PATH="$HOME/Library/Caches/@copperapp/cucmd/autocomplete/zsh_set
 # --- review <PR#>: check out a Copper PR in a dedicated worktree and open in Zed ---
 review() {
   [ -z "$1" ] && { echo "Usage: review <PR_NUMBER>"; return 1; }
-  cd "$HOME/Developer/Work/Copper/copper-review" && gh pr checkout "$1" && yarn install && zed -n .
+  local worktree="$HOME/Developer/Work/Copper/copper-review"
+  # Bootstrap the worktree on first use (e.g. a new machine) — same as parallel().
+  if [ ! -d "$worktree" ]; then
+    echo "Creating review worktree at $worktree..."
+    git -C "$COPPER" fetch origin master || return 1
+    git -C "$COPPER" worktree add --detach "$worktree" origin/master || return 1
+  fi
+  cd "$worktree" && gh pr checkout "$1" && yarn install && zed -n .
 }
 
 # --- parallel <branch>: spin up a parallel Copper worktree off origin/master ---

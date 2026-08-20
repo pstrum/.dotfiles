@@ -22,6 +22,10 @@ done
 link ".vim" "$HOME/.vim"
 link ".hammerspoon" "$HOME/.hammerspoon"
 
+echo "==> GPG agent (pinentry-mac, so the signing passphrase can be saved to Keychain)"
+mkdir -p "$HOME/.gnupg" && chmod 700 "$HOME/.gnupg"
+ln -sf "$DOTFILES_DIR/gnupg/gpg-agent.conf" "$HOME/.gnupg/gpg-agent.conf"
+
 echo "==> Editor settings"
 mkdir -p "$HOME/.config/zed"
 ln -sf "$DOTFILES_DIR/zed/settings.json" "$HOME/.config/zed/settings.json"
@@ -83,6 +87,8 @@ cat <<'NEXT'
   1. Generate fresh SSH key (ed25519) + register with GitHub/Copper.
   2. Generate fresh personal GPG key; put its ID in ~/.gitconfig-personal (signingkey).
      (and a work key in ~/.gitconfig-work if Copper requires signed commits)
+     On your first signed commit, tick "Save in Keychain" in the pinentry-mac
+     dialog — that's the one manual step; after it you're never prompted again.
   3. Edit ~/.zshrc.work: set paths + wire secrets from 1Password (op read ...).
   4. gh auth login. Install apps you keep by hand (Zed, iTerm2, WebStorm, Charles, Slack, 1Password).
   5. Verify per-folder identity: cd into ~/Developer/Work/<repo> && git config user.email
